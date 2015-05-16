@@ -1,0 +1,259 @@
+@mixin icon-dimensions {
+  width: 16px;
+  height: 16px;
+}
+
+.wg-detached-filter, .wice-grid{
+
+  .text-filter-container {
+    input{
+      width:auto;
+      margin-right: 10px;
+      display: inline;
+    }
+  }
+
+  a.date-label {text-decoration: none;}
+  a.date-label:hover {text-decoration: line-through;}
+
+  .clickable{
+    cursor: pointer;
+    margin-bottom: 2px;
+    margin-right: 2px;
+  }
+
+  .ui-datepicker-trigger, .wg-detached-filter .ui-datepicker-trigger{
+    cursor: pointer;
+  }
+
+  .custom-dropdown-container {
+
+    .expand-multi-select-icon, .collapse-multi-select-icon{
+      width: 10px;
+      height: 10px;
+      display: inline-block;
+      margin-left: 5px;
+      vertical-align: top;
+    }
+
+    .collapse-multi-select-icon{
+      background: transparent url(/assets/icons/grid/collapse.gif) no-repeat;
+    }
+
+    .expand-multi-select-icon{
+      background: transparent url(/assets/icons/grid/expand.gif) no-repeat;
+    }
+
+  }
+}
+
+.wice-grid{
+
+  color: #333;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+
+  .desc,  .asc{
+    padding-right: 18px;
+    text-decoration:none;
+  }
+
+  .desc {
+    background: transparent url(/assets/icons/grid/arrow_down.gif) right no-repeat
+  }
+  .asc  {
+    background: transparent url(/assets/icons/grid/arrow_up.gif)   right no-repeat
+  }
+
+  .submit.clickable{
+    background: transparent url(/assets/icons/grid/table_refresh.png) no-repeat;
+    @include icon-dimensions;
+  }
+
+  .reset.clickable{
+    background: transparent url(/assets/icons/grid/table.png) no-repeat;
+    @include icon-dimensions;
+  }
+
+
+  .wg-show-filter.clickable,
+  .wg-hide-filter.clickable{
+    background: transparent url(/assets/icons/grid/page_white_find.png) no-repeat;
+    @include icon-dimensions;
+  }
+
+
+  .export-to-csv-button.clickable{
+    background: transparent url(/assets/icons/grid/page_white_excel.png) no-repeat;
+    @include icon-dimensions;
+  }
+
+  .clickable.select-all{
+    background: transparent url(/assets/icons/grid/tick_all.png) no-repeat;
+    @include icon-dimensions;
+    float:left;
+  }
+
+  .clickable.deselect-all{
+    background: transparent url(/assets/icons/grid/untick_all.png) no-repeat;
+    @include icon-dimensions;
+    float:left;
+  }
+
+
+  /* in case of twitter bootstrap :) */
+  thead th select{
+    width: auto;
+  }
+
+  .pagination{
+    margin: 0px;
+    float: left;
+  }
+
+
+  tr.wg-filter-row  input[type=text] {
+    #width: 100px;
+  }
+
+  .pagination_status {
+    font-weight: bold;
+    float: right;
+  }
+
+}
+
+.wice-grid-query-panel{
+  li {list-style-type: none; }
+
+  ul {margin-left: 0 }
+
+  a.wice-grid-delete-query .delete-icon{
+    background: transparent url(/assets/icons/grid/delete.png) no-repeat;
+    float: left;
+    @include icon-dimensions;
+  }
+}
+
+input.wice-grid-save-query-field{
+  width: auto;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+/*
+  Custom styles
+*/
+
+tr.deleted{
+  background-color: #f5a4a4;
+}
+
+tr.canceled{
+  background-color: #f5a4a4;
+}
+
+tr.in_progress{
+  background-color: #ffffcc;
+}
+
+table.my-grid tr.my-header{
+  background-color: #f0f0f0;
+}
+
+table.my-grid tr.edit{
+  background-color: rgb(255, 255, 204);
+}
+
+
+table.my-grid td.selected{
+  width: 3%;
+}
+
+table.my-grid td.name{
+  width: 35%;
+}
+
+table.my-grid td.region{
+  width: 5%;
+}
+
+table.my-grid td.price{
+  width: 8%;
+}
+
+table.my-grid td.rate{
+  width: 4%;
+}
+
+table.my-grid td.category{
+  width: 16%;
+}
+
+table.my-grid td.vendor{
+  width: 13%;
+}
+
+table.my-grid td.quantity{
+  width: 5%;
+}
+
+table.my-grid td.created_at{
+  width: 5%;
+}
+
+table.my-grid td.actions{
+  width: 6%;
+}
+
+
+table.my-grid td.name span{
+  color: #449D44;
+  display: block;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+table.my-grid td.price span{
+  color: #999999;
+  display: block;
+  font-size: 11px;
+}
+
+table.my-grid th.vendor select{
+  width: 110px;
+  font-weight: normal;
+  background-color: white;
+  background-image: none;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+  color: #555555;
+  font-size: 14px;
+  height: 34px;
+  line-height: 1.42857;
+  padding: 6px 12px;
+  transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+}
+
+
+table.my-grid th.category select{
+  width: 110px;
+  font-weight: normal;
+  background-color: white;
+  background-image: none;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+  color: #555555;
+  font-size: 14px;
+  height: 34px;
+  line-height: 1.42857;
+  padding: 6px 12px;
+  transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+}
+
+table.my-grid th.name input{
+  width: 250px;
+}

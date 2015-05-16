@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Shop Homepage - Start Bootstrap Template</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="design-example/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="design-example/css/shop-homepage.css" rel="stylesheet">
+    <link href="design-example/css/sticky-footer.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand second" href="#">
+                    <div class="logo">
+                        <img src="design-example/logo.gif">
+                        <span style="color: #656364;">OVER</span><span style="color: #B50000;">SALE</span>
+                        <span class="slogan">...more than any sale</span>
+                        <div style="clear:both"></div>
+                    </div> 
+                </a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#">Товары</a>
+                    </li>
+                    <li>
+                        <a href="#">Услуги</a>
+                    </li>
+                    <li>
+                        <a href="#">Акции</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" class="navbar-brand shopping-cart"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></a>
+                    </li>
+                    <li>
+                        <a href="#" class="navbar-brand user"><span class="glyphicon glyphicon-user"></span></a>
+                    </li>
+                </ul>
+                                <form method="get" class="ui-widget navbar-form navbar-right" action="/products/search" accept-charset="UTF-8"><div style="display:none"><input type="hidden" value="✓" name="utf8"></div>
+        <input type="text" placeholder="Поиск..." name="term" id="term" class="form-control ui-autocomplete-input" autocomplete="off">
+</form>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+
+    <!-- Page Content -->
+    <div class="container-fluid">
+
+            <div class="col-md-3">
+                <div class="list-group">
+                <ul id="side-menu" class="nav">
+
+              <li>
+                <a href="index.html">Домкраты</a>
+              </li>
+              <li>
+                <a href="#">Зарядные устройства<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse">
+                  <li>
+                    <a href="flot.html">Bosh</a>
+                  </li>
+                  <li>
+                    <a href="morris.html">Einhell</a>
+                  </li>
+                  <li>
+                    <a href="morris.html">Solaris</a>
+                  </li>
+                  <li>
+                    <a href="morris.html">Telwin</a>
+                  </li>
+                </ul>
+                <!-- /.nav-second-level -->
+              </li>
+              <li>
+                <a href="tables.html">Затирочные машины</a>
+              </li>
+              <li>
+                <a href="forms.html">Измельчители</a>
+              </li>
+              <li>
+                <a href="#">Климатическая техника<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse">
+                  <li>
+                    <a href="#">Вентиляторы</a>
+                  </li>
+                  <li>
+                    <a href="#">Мойки воздуха</a>
+                  </li>
+                  <li>
+                    <a href="#">Увлажнители воздуха <span class="fa arrow"></span></a>
+                    <ul class="nav nav-third-level collapse">
+                      <li>
+                        <a href="#">Electrolux</a>
+                      </li>
+                      <li>
+                        <a href="#">Timberk</a>
+                      </li>
+                    </ul>
+                    <!-- /.nav-third-level -->
+                  </li>
+                </ul>
+                <!-- /.nav-second-level -->
+              </li>
+              <li class="">
+                <a href="#">Sample Pages<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse" aria-expanded="false" style="height: 0px;">
+                  <li>
+                    <a href="blank.html" class="active">Blank Page</a>
+                  </li>
+                  <li>
+                    <a href="login.html">Login Page</a>
+                  </li>
+                </ul>
+                <!-- /.nav-second-level -->
+              </li>
+            </ul>
+                </div>
+            </div>
+
+            <div class="col-md-9">
+        
+        <!-- /.start -->
+     <div class="row carousel-holder">
+
+        <div class="col-md-12">
+          <div data-ride="carousel" class="carousel slide" id="carousel-example-generic">
+            <ol class="carousel-indicators">
+              <li class="active" data-slide-to="0" data-target="#carousel-example-generic"></li>
+              <li data-slide-to="1" data-target="#carousel-example-generic" class=""></li>
+              <li data-slide-to="2" data-target="#carousel-example-generic" class=""></li>
+            </ol>
+            <div class="carousel-inner">
+              <div class="item active">
+                <img alt="" src="design-example/assets/lg-tv-c.png" class="slide-image">
+                <div class="carousel-caption">
+                    <h3>Телевизор Samsung UE32H6410</h3>
+                    <p>Диапазоны цифрового тюнера: DVB-S2, DVB-C, DVB-T2, Частота развертки панели: 100 Гц</p>
+                </div>
+              </div>
+              <div class="item">
+                <img alt="" src="design-example/assets/lg_2012_tv_1.png" class="slide-image">
+                <div class="carousel-caption">
+                    <h3>Телевизор Samsung UE32H6410</h3>
+                    <p>Диапазоны цифрового тюнера: DVB-S2, DVB-C, DVB-T2, Частота развертки панели: 100 Гц</p>
+                </div>                
+              </div>
+              <div class="item">
+                <img alt="" src="design-example/assets/lg_electronics_le8500_series_746158_g1.jpg" class="slide-image">
+                <div class="carousel-caption">
+                    <h3>Телевизор Samsung UE32H6410</h3>
+                    <p>Диапазоны цифрового тюнера: DVB-S2, DVB-C, DVB-T2, Частота развертки панели: 100 Гц</p>
+                </div>                
+              </div>
+            </div>
+            <a data-slide="prev" href="#carousel-example-generic" class="left carousel-control">
+              <span class="glyphicon glyphicon-chevron-left"></span>
+            </a>
+            <a data-slide="next" href="#carousel-example-generic" class="right carousel-control">
+              <span class="glyphicon glyphicon-chevron-right"></span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="row">
+
+        <div class="col-sm-6 col-lg-3 col-md-4">
+          <div class="thumbnail">
+            <div class="cover text-center"><img src="design-example/assets/tv2.jpg"></div>
+            <div class="caption">
+              <div class="desc">
+                <h4><a href="/products/sprockets-vg-300">Телевизор Samsung</a></h4>
+                <div class="rating_container">
+                  <div class="ratings">
+                    <p>
+                      <span class="glyphicon glyphicon-star"></span>
+                      <span class="glyphicon glyphicon-star"></span>
+                      <span class="glyphicon glyphicon-star"></span>
+                      <span class="glyphicon glyphicon-star-empty"></span>
+                      <span class="glyphicon glyphicon-star-empty"></span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-6"><span class="price"> 190,59 <span class="iso">руб.</span></span></div>
+                <div class="col-xs-6">
+                      <form method="post" class="button_to pull-right" action="/shopping_cart?product_id=7"><div><button type="submit" class="btn btn-primary">
+                        <span aria-hidden="true" class="glyphicon glyphicon-shopping-cart"></span> Купить
+                      </button><input type="hidden" value="ODugZH6bE1k8xNVEmbP/YSF9PgSiF5Pqmp35JC3SnvY=" name="authenticity_token"></div></form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-sm-6 col-lg-3 col-md-4">
+          <div class="thumbnail">
+            <div class="cover text-center"><img src="design-example/assets/tv2.jpg"></div>
+            <div class="caption">
+              <div class="desc">
+                <h4><a href="/products/sprockets-vg-300">Телевизор Samsung UE32H6410, DVB-S2, DVB-C, DVB-T2</a></h4>
+                <div class="rating_container">
+                  <div class="ratings">
+                    <p>
+                      <span class="glyphicon glyphicon-star"></span>
+                      <span class="glyphicon glyphicon-star"></span>
+                      <span class="glyphicon glyphicon-star"></span>
+                      <span class="glyphicon glyphicon-star-empty"></span>
+                      <span class="glyphicon glyphicon-star-empty"></span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-6"><span class="price"> 190,59 <span class="iso">руб.</span></span></div>
+                <div class="col-xs-6">
+                      <form method="post" class="button_to pull-right" action="/shopping_cart?product_id=7"><div><button type="submit" class="btn btn-primary">
+                        <span aria-hidden="true" class="glyphicon glyphicon-shopping-cart"></span> Купить
+                      </button><input type="hidden" value="ODugZH6bE1k8xNVEmbP/YSF9PgSiF5Pqmp35JC3SnvY=" name="authenticity_token"></div></form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="col-sm-6 col-lg-3 col-md-4">
+          <div class="thumbnail">
+            <div class="cover text-center"><img src="design-example/assets/tv2.jpg"></div>
+            <div class="caption">
+              <div class="desc">
+                <h4><a href="/products/sprockets-vg-300">Телевизор Samsung UE32H6410, DVB-S2, DVB-C, DVB-T2</a></h4>
+                <div class="rating_container">
+                  <div class="ratings">
+                    <p>
+                      <span class="glyphicon glyphicon-star"></span>
+                      <span class="glyphicon glyphicon-star"></span>
+                      <span class="glyphicon glyphicon-star"></span>
+                      <span class="glyphicon glyphicon-star-empty"></span>
+                      <span class="glyphicon glyphicon-star-empty"></span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-6"><span class="price"> 190,59 <span class="iso">руб.</span></span></div>
+                <div class="col-xs-6">
+                      <form method="post" class="button_to pull-right" action="/shopping_cart?product_id=7"><div><button type="submit" class="btn btn-primary">
+                        <span aria-hidden="true" class="glyphicon glyphicon-shopping-cart"></span> Купить
+                      </button><input type="hidden" value="ODugZH6bE1k8xNVEmbP/YSF9PgSiF5Pqmp35JC3SnvY=" name="authenticity_token"></div></form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-lg-3 col-md-4">
+          <div class="thumbnail">
+            <div class="cover text-center"><img src="design-example/assets/tv2.jpg"></div>
+            <div class="caption">
+              <div class="desc">
+                <h4><a href="/products/sprockets-vg-300">Телевизор Samsung UE32H6410, DVB-S2</a></h4>
+                <div class="rating_container">
+                  <div class="ratings">
+                    <p>
+                      <span class="glyphicon glyphicon-star"></span>
+                      <span class="glyphicon glyphicon-star"></span>
+                      <span class="glyphicon glyphicon-star"></span>
+                      <span class="glyphicon glyphicon-star-empty"></span>
+                      <span class="glyphicon glyphicon-star-empty"></span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-6"><span class="price"> 190,59 <span class="iso">руб.</span></span></div>
+                <div class="col-xs-6">
+                      <form method="post" class="button_to pull-right" action="/shopping_cart?product_id=7"><div><button type="submit" class="btn btn-primary">
+                        <span aria-hidden="true" class="glyphicon glyphicon-shopping-cart"></span> Купить
+                      </button><input type="hidden" value="ODugZH6bE1k8xNVEmbP/YSF9PgSiF5Pqmp35JC3SnvY=" name="authenticity_token"></div></form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-lg-3 col-md-4">
+          <div class="thumbnail">
+            <div class="cover text-center"><img src="design-example/assets/tv2.jpg"></div>
+            <div class="caption">
+              <div class="desc">
+                <h4><a href="/products/sprockets-vg-300">Телевизор Samsung UE32H6410, DVB-S2, DVB-C, DVB-T2</a></h4>
+                <div class="rating_container">
+                  <div class="ratings">
+                    <p>
+                      <span class="glyphicon glyphicon-star"></span>
+                      <span class="glyphicon glyphicon-star"></span>
+                      <span class="glyphicon glyphicon-star"></span>
+                      <span class="glyphicon glyphicon-star-empty"></span>
+                      <span class="glyphicon glyphicon-star-empty"></span>
+                    </p>
+                  </div>
+                </div>            
+              </div>
+              
+              <div class="row">
+                <div class="col-xs-6"><span class="price"> 190,59 <span class="iso">руб.</span></span></div>
+                <div class="col-xs-6">
+                      <form method="post" class="button_to pull-right" action="/shopping_cart?product_id=7"><div><button type="submit" class="btn btn-primary">
+                        <span aria-hidden="true" class="glyphicon glyphicon-shopping-cart"></span> Купить
+                      </button><input type="hidden" value="ODugZH6bE1k8xNVEmbP/YSF9PgSiF5Pqmp35JC3SnvY=" name="authenticity_token"></div></form>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-lg-3 col-md-4">
+          <div class="thumbnail">
+            <div class="cover text-center"><img src="design-example/assets/tv1.jpg" ></div>
+            <div class="caption">
+              <div class="desc">
+                <h4><a href="/products/sprockets-vg-300">Телевизор Samsung UE32H6410, DVB-S2, DVB-C, DVB-T2</a></h4>
+                <div class="rating_container">
+                  <div class="ratings">
+                    <p>
+                      <span class="glyphicon glyphicon-star"></span>
+                      <span class="glyphicon glyphicon-star"></span>
+                      <span class="glyphicon glyphicon-star"></span>
+                      <span class="glyphicon glyphicon-star-empty"></span>
+                      <span class="glyphicon glyphicon-star-empty"></span>
+                    </p>
+                  </div>
+                </div>
+                
+              </div>
+
+              <div class="row">
+                <div class="col-xs-6"><span class="price"> 190,59 <span class="iso">руб.</span></span></div>
+                <div class="col-xs-6">
+                      <form method="post" class="button_to pool-right" action="/shopping_cart?product_id=7"><div><button type="submit" class="btn btn-primary">
+                        <span aria-hidden="true" class="glyphicon glyphicon-shopping-cart"></span> Купить
+                      </button><input type="hidden" value="ODugZH6bE1k8xNVEmbP/YSF9PgSiF5Pqmp35JC3SnvY=" name="authenticity_token"></div></form>
+                </div>
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-lg-3 col-md-4">
+          <div class="thumbnail">
+            <div class="cover text-center"><img src="design-example/assets/no.png"></div>
+            <div class="caption">
+              <div class="desc">
+                <h4><a href="/products/sprockets-vg-300">Телевизор Samsung UE32H6410, DVB-S2, DVB-C, DVB-T2</a></h4>
+                <div class="rating_container">
+                  <div class="ratings">
+                    <p>
+                      <span class="glyphicon glyphicon-star"></span>
+                      <span class="glyphicon glyphicon-star"></span>
+                      <span class="glyphicon glyphicon-star"></span>
+                      <span class="glyphicon glyphicon-star-empty"></span>
+                      <span class="glyphicon glyphicon-star-empty"></span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-xs-6"><span class="price"> 190,59 <span class="iso">руб.</span></span></div>
+                <div class="col-xs-6 ">
+                      <form method="post" class="button_to pull-right" action="/shopping_cart?product_id=7"><div><button type="submit" class="btn btn-primary">
+                        <span aria-hidden="true" class="glyphicon glyphicon-shopping-cart"></span> Купить
+                      </button><input type="hidden" value="ODugZH6bE1k8xNVEmbP/YSF9PgSiF5Pqmp35JC3SnvY=" name="authenticity_token"></div></form>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+<!-- /.end -->
+
+
+            </div>
+
+        </div>
+
+    </div>
+    <!-- /.container -->
+
+<footer class="footer">
+    <div class="row">
+        <div class="col-md-4 col-sm-6 col-md-offset-2">
+          <h3>Quick links</h3>
+      
+          <div class="row">
+            <div class="col-md-6 col-sm-4 col-lg-4">
+              <ul>
+                <li><a href="/">Главная</a></li>
+                <li><a href="/about">О магазине</a></li>
+                <li><a href="/feedback">Обратная связь</a></li>
+                <li><a href="/delivery">Доставка</a></li>
+              </ul>              
+            </div>
+            <div class="col-md-6 col-sm-6 col-lg-4">
+              <ul>
+                <li><a href="/news">Новости</a></li>
+                <li><a href="/map">Карта сайта</a></li>
+                <li><a href="/services">Сервисные центры</a></li>            
+              </ul>              
+            </div>            
+          </div>    
+
+
+        </div>
+        <div class="col-md-4 col-sm-6 col-md-offset-1">
+          <h3>Get in Touch</h3>
+
+          <a target="_blank" href="#" class="social">
+            <img border="0" src="design-example/assets/icon-3.png" alt="" style="vertical-align: middle;">
+          </a>
+          <a target="_blank" href="#" class="social">
+            <img border="0" src="design-example/assets/icon-7.png" alt="" style="vertical-align: middle;">
+          </a>       
+          <a target="_blank" href="#" class="social">
+            <img border="0" src="design-example/assets/picasa.png" alt="" style="vertical-align: middle;">
+          </a>
+
+          <br><br>
+          <h3>Contact information</h3>
+          <ul>
+            <li>Cycling Through the Centuries</li>
+            <li>1-970-672-0209 (USA) | (+351) 21 242 4604 [EU]</li>
+            <li>info@cycling-centuries.com</li>            
+          </ul>          
+        </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 text-center"><hr> <div class="rights"> &copy; 2015 Depot All rights reserved. </div> </div>
+    </div>  
+</footer>
+
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <script src="design-example/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="design-example/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

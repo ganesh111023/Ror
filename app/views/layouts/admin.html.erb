@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= content_for?(:title) ? yield(:title) : t('application_full_name') %></title>
+  <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Depot" %>">
+  <%= stylesheet_link_tag 'admin', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'admin', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+    <%= render 'layouts/admin_navigation' %>
+
+    <div class="container">
+        <%= render 'layouts/messages' %>
+        <div class='page-header'>
+            <h3><%= content_for?(:page_header) ? yield(:page_header) : t('application_full_name') %></h3>
+        </div>
+        <%= yield %>
+    </div>
+    <footer class="footer">
+      <div class="container">
+        <p class="text-muted"><%= t('application_full_name') %></p>
+      </div>
+    </footer>
+
+
+</body>
+</html>

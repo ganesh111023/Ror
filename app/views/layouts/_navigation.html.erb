@@ -1,0 +1,77 @@
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-static-top" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to(root_path, class: 'navbar-brand hidden-xs', style: 'padding-right: 0px;') do %>
+          <div class="logo">
+            <%= image_tag 'logo.gif' %>
+            <span style="color: #656364;">OVER</span><span style="color: #B50000;">SALE</span>
+            <span class="slogan">...more than any sale</span>
+            <div style="clear:both"></div>
+          </div>
+      <% end %>
+      <%= link_to(root_path, class: 'navbar-brand navbar-brand-mob visible-xs') do %>
+          <div class="logo-mob">
+            <%= image_tag 'logo.gif' %>
+            <span style="color: #656364;">OVER</span><span style="color: #B50000;">SALE</span>
+            <div style="clear:both"></div>
+          </div>
+      <% end %>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><%= link_to t('header.navbar.gifts'), categories_path(:gifts => 1) %></li>
+        <li><%= link_to t('header.navbar.goods'), categories_path %></li>
+        <li><%= link_to t('home.about.title'), about_path %></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <% if session.include?(:shopping_cart_id) %>
+            <li><%= link_to '<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>'.html_safe, shopping_cart_path, class: 'navbar-brand shopping-cart' %></li>
+        <% end %>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" data-toggle="dropdown" class="dropdown-toggle" aria-expanded="false">
+            <%= I18n.locale %>  <i class="fa fa-caret-down"></i>
+          </a>
+          <ul class="dropdown-menu dropdown-user">
+            <% if I18n.locale != :en %> <li><%= link_to 'English', :locale=>'en'%></li> <% end %>
+            <% if I18n.locale != :ru %> <li><%= link_to 'Русский', :locale=>'ru'%></li> <% end %>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" data-toggle="dropdown" class="dropdown-toggle" aria-expanded="false">
+            <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
+          </a>
+          <ul class="dropdown-menu dropdown-user">
+            <% if current_user.try(:admin?) %>
+                <li><%= link_to '<i class="fa fa-gear fa-fw"></i> '.html_safe + t('helpers.titles.adminpanel'), admin_products_path %></li>
+                <li class="divider"></li>
+            <% end %>
+            <% if user_signed_in? %>
+                <li><%= link_to '<i class="fa fa-user fa-fw"></i> '.html_safe + t('helpers.links.profile'), edit_user_registration_path %></li>
+                <li><%= link_to '<i class="fa fa-sign-out fa-fw"></i> '.html_safe + t('logout'), destroy_user_session_path, :method=>'delete' %></li>
+            <% else %>
+                <li><%= link_to '<i class="fa fa-sign-in"></i>  '.html_safe + t('sign_in'), new_user_session_path %></li>
+                <li><%= link_to '<i class="fa fa-user-plus"></i> '.html_safe + t('devise.registrations.new.title'), new_user_registration_path %></li>
+            <% end %>
+          </ul>
+        </li>
+      </ul>
+      <%= form_tag search_products_path, class:'ui-widget navbar-form navbar-right', method: 'get' do %>
+          <%= hidden_field_tag 'locale', params[:locale] %>
+          <%= text_field_tag 'term', params[:term], placeholder: t('search_placeholder'), class: 'form-control ui-autocomplete-input' %>
+      <% end %>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container -->
+</nav>

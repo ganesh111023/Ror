@@ -1,0 +1,129 @@
+<% title t('.title') %>
+
+<div class="info">
+<p class="bg-info">
+  <%=t('.info').html_safe %>
+</p>
+</div>
+
+<div class="col-md-6">
+  <div class="well">
+
+
+<%= form_tag import_admin_products_path, multipart: true do %>
+
+    <div class="form-group">
+        <div class="input-group">
+            <div class="input-group-addon">
+                <span class="glyphicon glyphicon-question-sign"
+                    aria-hidden="true"
+                    data-toggle="tooltip"
+                    data-placement="top"
+                    data-original-title="<%=t('import.tooltip.vendor')%>">
+                </span>
+            </div>
+            <%= select_tag 'vendor_id', options_for_select(Vendor.all.collect {|v| [ v.name, v.id ] }), class: 'form-control' %>
+        </div>
+    </div>
+
+    <div class="form-group">
+
+      <div class="input-group">
+        <div class="input-group-addon">
+          <span class="glyphicon glyphicon-question-sign"
+                aria-hidden="true"
+                data-toggle="tooltip"
+                data-placement="top"
+                data-original-title="<%=t('import.tooltip.currency')%>">
+          </span>
+        </div>
+        <%= select_tag 'currency', options_for_select(['USD','EUR','RUB']), class: 'form-control' %>
+      </div>
+
+    </div>
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-addon">
+          <span class="glyphicon glyphicon-question-sign"
+                aria-hidden="true"
+                data-toggle="tooltip"
+                data-placement="top"
+                data-original-title="<%=t('import.tooltip.extension')%>">
+          </span>
+        </div>
+        <%= select_tag 'extension', options_for_select(['xls','xlsx']), include_blank: t('import.placeholder.extension'), class: 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-addon">
+          <span class="glyphicon glyphicon-question-sign"
+                aria-hidden="true"
+                data-toggle="tooltip"
+                data-placement="top"
+                data-original-title="<%=t('import.tooltip.url')%>">
+          </span>
+        </div>
+        <%= text_field_tag 'url', nil, placeholder: t('import.placeholder.url'), class: 'form-control' %>
+      </div>
+
+    </div>
+        <div class="form-group">
+          <div class="radio">
+              <span class="glyphicon glyphicon-question-sign"
+                    aria-hidden="true"
+                    data-toggle="tooltip"
+                    data-placement="top"
+                    data-original-title="<%=t('import.tooltip.type_update')%>">
+              </span>  &nbsp;
+            <%= label_tag(:import_type_new) do %>
+                <%= radio_button_tag :import_type, 'new', :checked => true %><%= t('Готов') %>
+            <% end %>
+          </div>
+          <div class="radio">
+              <span class="glyphicon glyphicon-question-sign"
+                    aria-hidden="true"
+                    data-toggle="tooltip"
+                    data-placement="top"
+                    data-original-title="<%=t('import.tooltip.type_update')%>">
+              </span>  &nbsp;
+              <%= label_tag(:import_type_update) do %>
+                  <%= radio_button_tag :import_type, 'update' %><%= t('Обновить') %>
+              <% end %>
+          </div>
+          <div class="radio">
+              <span class="glyphicon glyphicon-question-sign"
+                    aria-hidden="true"
+                    data-toggle="tooltip"
+                    data-placement="top"
+                    data-original-title="<%=t('import.tooltip.type_sync')%>">
+              </span>  &nbsp;
+              <%= label_tag(:import_type_sync) do %>
+                  <%= radio_button_tag :import_type, 'sync' %><%= t('Синхронизировать') %>
+              <% end %>
+          </div>
+
+        </div>
+    <div class="form-group">
+      <div class="checkbox">
+        <%= label_tag(:recurring_import) do %>
+            <%= check_box_tag :recurring_import %><%= t('Запускать данную конфигурацию раз в сутки') %>
+        <% end %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= file_field_tag :file, accept: 'xls,xlsx' %>
+    </div>
+    <div class="form-group">
+        <%= submit_tag "Import", :class => 'btn btn-success' %>
+    </div>
+<% end %>
+
+  </div>
+</div>
+
+<script>
+    $(function () {
+        $("[data-toggle='tooltip']").tooltip();
+    });
+</script>

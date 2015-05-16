@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="col-xs-12 col-md-4">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= t('.title') %></h3>
+      </div>
+      <div class="panel-body">
+
+        <%= form_tag choose_payment_orders_path, method: 'post' do %>
+<div class="paymentmethods">
+
+    <ul class="mb10">
+      <li>
+        <input type="radio" name="pmtmthd" id="PAYPAL_NOLINK" checked="checked" value="credit_card">
+        <label for="PAYPAL_NOLINK"><img src="https://secureir.ebaystatic.com/pictures/aw/pics/fr/checkout/payments/paypal/ppguest_1.gif" border="0" alt="PAYPAL_NOLINK" title="PAYPAL_NOLINK"></label>
+        <div class="bmldiv" style="padding-left: 28px;">Processed by PayPal</div>
+      </li>
+      <li>
+        <input type="radio" name="pmtmthd" id="PAYPAL" value="paypal" >
+        <label for="PAYPAL"><img src="https://secureir.ebaystatic.com/pictures/aw/pics/checkout/payments/paypal/pymt_paypal.png" border="0" alt="PAYPAL" title="PAYPAL"></label>
+      </li>
+    </ul>
+
+    <%= submit_tag t('continue'), :class => 'btn btn-success' %>
+</div>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>

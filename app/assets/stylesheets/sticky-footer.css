@@ -1,0 +1,81 @@
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    position: relative;
+    min-height: 100%;
+}
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 550px;
+}
+.footer {
+    color: #f6f5f5;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here
+    height: 260px; */
+    background-color: #999999;
+    padding: 20px;
+}
+
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+.footer UL {
+    font-size: 12px;
+    list-style-type: none;
+    margin-left: 12px;
+    padding: 0 0 0 1px;
+}
+
+.footer LI {
+    margin-top: 5px;
+}
+
+.footer LI:before {
+    color: #595971;
+    content: "";
+    margin-left: -12px;
+    margin-right: 5px;
+}
+
+.footer LI a {
+    color: #f6f5f5;
+    border-bottom: 1px dotted #f6f5f5;
+}
+
+.footer .container {
+    width: auto;
+    max-width: 680px;
+    padding: 0 15px;
+}
+.footer .container .text-muted {
+    margin: 20px 0;
+}
+
+.footer h3 {
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 16px;
+}
+
+.footer hr {
+    margin-top: 20px;
+    border-color: #D9D9D9;
+}
+
+.footer .rights {
+    color: #D9D9D9;
+    font-size: 12px;
+}
+
+.footer .social {
+    margin-right: 5px;
+}
+
+.footer .social img {
+    display: inline;
+}

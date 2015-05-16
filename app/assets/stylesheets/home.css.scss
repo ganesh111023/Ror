@@ -1,0 +1,305 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.scss.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@media (max-width: 400px){
+  .navbar-nav {
+    margin: 0;
+  }
+}
+
+@media (min-width: 500px){
+  .navbar-nav {
+    margin: 17px;
+  }
+}
+
+.slide-image {
+  /* width: 100%; */
+}
+
+.carousel-holder {
+  margin-bottom: 30px;
+}
+
+.carousel-control,
+.item {
+  border-radius: 4px;
+}
+
+.caption {
+  overflow: hidden;
+}
+
+.thumbnail .cover img {
+  width: 100%;
+}
+
+.thumbnail .caption a {
+  color: #333 !important;
+  text-decoration: none;
+}
+
+.ratings {
+  color: #F2A900
+}
+
+.thumbnail {
+  padding: 0;
+}
+
+.thumbnail .caption-full {
+  padding: 9px;
+  color: #333;
+}
+
+@font-face {
+  font-family: 'league_spartanregular';
+  src: font-url('LeagueSpartan-Bold-webfont.eot');
+  src: font-url('LeagueSpartan-Bold-webfont.eot?#iefix') format('embedded-opentype'),
+  font-url('LeagueSpartan-Bold-webfont.woff2') format('woff2'),
+  font-url('LeagueSpartan-Bold-webfont.woff') format('woff'),
+  font-url('LeagueSpartan-Bold-webfont.ttf') format('truetype'),
+  font-url('LeagueSpartan-Bold-webfont.svg#league_spartanregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+
+.subheader {
+  height: 250px;
+  background-color: #F4F2F4;
+  padding: 30px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.logo-mob {
+  padding: 2px;
+  font-size: 30px;
+  font-family: 'league_spartanregular';
+  background-color: #F4F2F4;
+}
+
+.logo-mob img {
+  width: 65px;
+  height: 60px;
+  float: left;
+}
+
+.logo {
+  padding: 2px;
+  font-size: 30px;
+  font-family: 'league_spartanregular';
+  width: 250px;
+  background-color: #F4F2F4;
+}
+
+.logo .slogan {
+  display: block;
+  font-family: 'sans-serif';
+  color: #555555;
+  font-size: 18px;
+  margin-right: 5px;
+  text-align: right;
+
+}
+
+.logo img {
+  width: 75px;
+  height: 70px;
+  float: left;
+}
+
+.navbar {
+  margin-bottom: 10px;
+}
+
+.navbar-default {
+  margin-bottom: 17px;
+  border: 0px;
+  background-color: #F4F2F4;
+
+}
+
+.navbar-brand {
+  float: left;
+  height: inherit;
+  line-height: normal;
+  padding: 15px;
+}
+
+.navbar-brand-mob {
+  padding-right: 0px;
+  padding: 5px;
+}
+
+.navbar-form {
+  margin-top: 25px;
+}
+
+.form-control.ui-autocomplete-input {
+  width: 250px;
+}
+
+
+/*
+    Project specific
+*/
+a {
+  color: #333333;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #B50000;
+}
+
+.work-area a {
+  color: #711F06;
+  text-decoration: underline;
+}
+
+.navbar-default .navbar-nav > li > a {
+  color: #333333;
+}
+
+.navbar-default .navbar-nav > li > a:hover {
+  color: #B50000;
+}
+
+.navbar-default .navbar-nav > li > a.shopping-cart {
+  color: #777;
+}
+
+.navbar-default .navbar-nav > li > a.dropdown-toggle {
+  color: #777;
+}
+
+span.price {
+  font-weight: bold;
+  color: #333333;
+  font-size: 16px;
+}
+span.price .iso {
+  color: #777777;
+  font-size: 13px;
+  position: relative;
+  top: -4px;
+}
+
+.btn-primary, .submit {
+  background-color: #B50000;
+  border-color: #A5320D;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #711F06;
+  border-color: #711F06;
+  color: white;
+}
+
+.desc {
+  min-height: 110px;
+  overflow: hidden;
+}
+
+.carousel {
+  background-color: #fff;
+  position: relative;
+}
+
+.carousel-inner > .item > img {
+  margin: 0 auto;
+}
+
+.carousel-indicators {
+  bottom:-50px;
+}
+
+.carousel-inner {
+  margin-bottom:50px;
+}
+
+.carousel-indicators .active {
+  background-color: #B50000;
+  border: 0px;
+  height: 12px;
+  margin: 0;
+  width: 12px;
+}
+
+.carousel-indicators li {
+  background-color: #fff;
+  border: 1px solid grey;
+}
+
+.carousel-caption {
+  background-color: rgba(0,0,0,0.4);
+}
+
+/* dsf dsf  */
+.sidebar .sidebar-nav.navbar-collapse {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.sidebar ul li {
+  border-bottom: 1px solid #e7e7e7;
+}
+
+.sidebar ul li a.active {
+  background-color: #eee;
+}
+
+.sidebar .arrow {
+  float: right;
+}
+
+.sidebar .fa.arrow:before {
+  content: "\f104";
+}
+
+.sidebar .active>a>.fa.arrow:before {
+  content: "\f107";
+}
+
+.sidebar .nav-second-level li,
+.sidebar .nav-third-level li {
+  border-bottom: 0!important;
+}
+
+.sidebar .depth_0 li a {
+  padding-left: 37px;
+}
+
+.sidebar .depth_1 li a {
+  padding-left: 52px;
+}
+
+/* shopping cart */
+.cart-i-remove {
+  display: inline-block;
+  height: 17px;
+  margin-top: 0.385em;
+  width: 17px;
+}
+.cart-i-remove-icon{background:url(asset-path("sprite.png")) no-repeat -800px -25px}
+
+.cart .row {
+  margin-bottom: 15px;
+}
+
+.cart a.delete-mob {
+  display: block;
+  background-color: #e7e7e7;
+  padding: 5px 3px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.cart .ui-widget-content a {
+  padding: 0;
+}

@@ -1,0 +1,28 @@
+
+<% title t('activerecord.models.product', :count => 0) %>
+<div class="row">
+    <div class="pull-right">
+        <%= button_to t('activerecord.attributes.product.is_featured'), featured_admin_products_path, :class => 'btn btn-primary', :method => :get %>
+        <%= button_to t('helpers.links.new'), new_admin_product_path, :class => 'btn btn-primary', :method => :get %>
+        <%= button_to t('admin.products.import_index.title'), import_admin_products_path, :class => 'btn btn-primary', :method => :get %>
+    </div>
+</div>
+<hr>
+<div class="row">
+<%= form_tag(admin_products_path, method: "get") do %>
+    <div class="table-responsive">
+      <%= render 'grid' %>
+    </div>
+      <div class="row">
+    <div class="col-md-3">
+      <% h = [{'name' => 'Ready status', 'id' => 'status_active'}, {'name' => 'Edit status', 'id' => 'status_edit'}, {'name' => 'Deleted status', 'id' => 'status_delete'}, {'name' => 'Move to change in pics', 'id' => 'to_featured'}] %>
+      <%= select_tag 'action_box', options_for_select(h.collect {|v| [ v['name'], v['id'] ] }), class: 'form-control' %>
+
+    </div>
+      <div class="col-md-2">
+        <%= submit_tag t('apply'), :class => 'btn btn-success btn-sm', name: 'action_button' %> &nbsp;
+      </div>
+      </div>
+<% end %>
+  </div>
+<hr>

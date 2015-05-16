@@ -1,0 +1,50 @@
+<%- model_class = Order -%>
+<%= grid(@orders_grid, allow_showing_all_records:  false, show_filters: :when_filtered, html: {}, header_tr_html:  {class: 'my-header'}) do |g|
+
+  g.blank_slate  do
+    content_tag :div, "Странно, заказов еще нет", class: 'well'
+  end
+
+  g.row_attributes do |v|
+    {class: v.status.downcase} unless Order.status.find_value(v.status).value == Order::STATUS_COMPLETED
+  end
+
+  g.column name: model_class.human_attribute_name(:id),
+           attribute: 'id',
+           filter: false do |v|
+    link_to v.id, admin_order_path(v), target: 'blank'
+  end
+
+  g.column name: model_class.human_attribute_name(:user),
+           attribute: 'first_name',
+           filter: false,
+           html: {class: 'name'}  do |v|
+    link_to "#{v.first_name} #{v.last_name}", admin_user_path(v.user), target: 'blank'
+  end
+
+  g.column name: model_class.human_attribute_name(:amount_cents),
+           attribute: 'amount_cents',
+           filter: false,
+           html: {class: 'amount_cents'}  do |v|
+    v.amount.format
+  end
+
+  g.column name: model_class.human_attribute_name(:card_type),
+           attribute: 'card_type',
+           filter: false,
+           html: {class: 'card_type'}  do |v|
+    v.card_type
+  end
+
+  g.column name: model_class.human_attribute_name(:created_at),
+           attribute: 'created_at',
+           html: {class: 'created_at'} do |v|
+    l v.created_at, :format => :long
+  end
+
+  g.column html: {class: 'actions'} do |v|
+    render 'grid_actions', v: v
+  end
+
+end
+%>

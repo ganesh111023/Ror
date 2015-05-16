@@ -1,0 +1,187 @@
+/*!
+ * jQuery UI Menu 1.11.2
+ * http://jqueryui.com
+ *
+ * Copyright 2014 jQuery Foundation and other contributors
+ * Released under the MIT license.
+ * http://jquery.org/license
+ *
+ * http://api.jqueryui.com/menu/#theming
+ */
+/*
+ *= require jquery-ui/core
+ *= require jquery-ui/theme
+ */
+.ui-menu { width: 250px; }
+
+.ui-widget {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.42857;
+}
+
+.ui-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: block;
+    outline: none;
+    background: #f5f5f5;
+    border: 0px;
+}
+.ui-menu .ui-menu {
+    position: absolute;
+}
+.ui-menu .ui-menu-item {
+    position: relative;
+    margin: 0;
+    padding: 10px 8px;
+    cursor: pointer;
+    min-height: 0; /* support: IE7 */
+    /* support: IE10, see #8844 */
+    list-style-image: url("data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7");
+}
+.ui-menu .ui-menu-divider {
+    margin: 5px 0;
+    height: 0;
+    font-size: 0;
+    line-height: 0;
+    border-width: 1px 0 0 0;
+}
+.ui-menu .ui-state-focus,
+.ui-menu .ui-state-active {
+    margin: -1px;
+}
+
+/* icon support */
+.ui-menu-icons {
+    position: relative;
+}
+.ui-menu-icons .ui-menu-item {
+    padding-left: 2em;
+}
+
+/* left-aligned */
+.ui-menu .ui-icon {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: .2em;
+    margin: auto 0;
+}
+
+/* right-aligned */
+.ui-menu .ui-menu-icon {
+    left: auto;
+    right: 0;
+}
+
+
+/* Interaction Cues
+----------------------------------*/
+.ui-widget-content a {
+    color: #337ab7;
+    text-decoration: none;
+    padding: 10px 15px;
+}
+.ui-state-hover a,
+.ui-state-hover a:hover,
+.ui-state-hover a:link,
+.ui-state-hover a:visited,
+.ui-state-focus a,
+.ui-state-focus a:hover,
+.ui-state-focus a:link,
+.ui-state-focus a:visited {
+    color: #337ab7;
+    text-decoration: none;
+}
+.ui-state-active a,
+.ui-state-active a:link,
+.ui-state-active a:visited {
+    color: #337ab7;
+    text-decoration: none;
+}
+
+.ui-state-hover,
+.ui-widget-content .ui-state-hover,
+.ui-widget-header .ui-state-hover,
+.ui-state-focus,
+.ui-widget-content .ui-state-focus,
+.ui-widget-header .ui-state-focus {
+    border: 0px;
+    background: #eeeeee;
+    color: #ffffff/*{fcHover}*/;
+}
+
+.ui-menu .ui-state-focus, .ui-menu .ui-state-active {
+    margin: 0px;
+}
+
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {
+    border: 0px;
+    /*background: #428bca;*/
+    background: #f5f5f5;
+    font-weight: normal;
+}
+
+/* autocomplete */
+#term .ui-autocomplete-loading {
+    background-image: url(loading.gif);
+    background-position: right center;
+    background-repeat: no-repeat;
+}
+.ui-autocomplete {
+    z-index: 9999;
+}
+
+.ui-autocomplete.ui-front.ui-menu.ui-widget.ui-widget-content {
+    background: none repeat scroll 0 0 #fff;
+    border: 1px solid #ccc;
+    font-size: 12px;
+}
+.ui-autocomplete.ui-front.ui-menu.ui-widget.ui-widget-content li a {
+    padding: 0px;
+}
+.ui-autocomplete.ui-front.ui-menu.ui-widget.ui-widget-content li a img {
+    width:50px;
+    height:50px;
+    float:left;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+.ui-autocomplete.ui-front.ui-menu.ui-widget.ui-widget-content li a span.price {
+    color: #335a4c;
+    display: block;
+    font-size: 12px;
+    font-weight: bold;
+}
+.ui-autocomplete.ui-front.ui-menu.ui-widget.ui-widget-content li a span.price .iso {
+    color: #777777;
+    font-size: 11px;
+    position: relative;
+    top: 0px;
+}
+
+/* carousel */
+.bs-example:after {
+    color: #959595;
+    /* content: "Хиты продаж"; */
+    font-size: 12px;
+    font-weight: 700;
+    left: 15px;
+    letter-spacing: 1px;
+    position: absolute;
+    text-transform: uppercase;
+    top: 15px;
+}
+
+.bs-example {
+    background-color: #fff;
+    border-color: #ddd;
+    border-radius: 4px 4px 0 0;
+    border-width: 1px;
+    box-shadow: none;
+    margin-left: 0;
+    margin-right: 0;
+    /* width: 70%; */
+}

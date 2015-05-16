@@ -1,0 +1,34 @@
+<% title t('.title') %>
+
+<div class="row">
+<% @product.images.each do |i| %>
+    <div class="col-xs-6 col-md-3 <%= 'image_default' if i.is_primary %>">
+      <div class="thumbnail">
+        <div class="cover text-cente">
+          <%= link_to image_tag(i.image_filename_url(:thumb)), i.image_filename_url(), :alt =>  @product.name, target: '_blank' %>
+        </div>
+        <% unless i.is_primary %>
+            <p class="text-center">
+                <%= link_to 'Удалить', admin_product_image_path(@product, i),
+                            method: 'delete',
+                            :data => { :confirm => 'Удалить изображение?' }
+                %> <br>
+                <%= link_to 'Заглавная', edit_admin_product_image_path(@product, i) %>
+            </p>
+        <% end %>
+    </div>
+    </div>
+<% end %>
+</div>
+
+<div class="row">
+  <div class="col-xs-6 col-md-3 well">
+    <div class="form-group">
+<%= form_tag(admin_product_images_path(:product_id => @product.id), multipart: true, method: 'post') do %>
+    <%= file_field_tag :image %> <br>
+    <%= link_to t('helpers.links.back'), edit_admin_product_path(@product), class: 'btn' %>
+    <%= submit_tag 'Добавить', :class => 'btn btn-primary btn-sm', name: 'active_button' %>
+<% end %>
+    </div>
+    </div>
+</div>

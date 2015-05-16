@@ -1,0 +1,36 @@
+.b-login-form {
+  background: #f8f8f8;
+  color: #6c6c6c;
+}
+.b-login-form H4 {
+  font-size: 20px;
+}
+.b-login-form .forgot-pass {
+  text-align: right;
+  padding-top: 10px;
+}
+.b-login-form .social-login {
+  text-align: right;
+}
+.b-login-form .registration-info UL {
+  font-size: 14px;
+  list-style-type: none;
+  margin: 0;
+  padding: 0 0 0 1px;
+}
+.b-login-form .registration-info LI:before {
+  color: #D1244D;
+  content: "–";
+  margin-left: -12px;
+  margin-right: 5px;
+}
+.b-login-form .social-login .auth_provider {
+  margin-left: 4px;
+}
+.b-login-form .social-login .auth_provider IMG {
+  opacity: 0.8;
+  display: inline;
+}
+.b-login-form .social-login .auth_provider:hover IMG {
+  opacity: 1;
+}

@@ -1,0 +1,8 @@
+<%= render 'tree' %>
+<%= render 'breadcrumbs' %>
+
+<div class="row">
+  <%= render @products %>
+</div>
+
+<%= will_paginate @products, renderer: BootstrapPagination::Rails %>

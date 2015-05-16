@@ -1,0 +1,41 @@
+// Place all the styles related to the Products controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+a.actions {
+  margin: 5px;
+}
+
+#products td.desc {
+  width: 350px;
+}
+
+.button_to,
+.button_to div {
+  display: inline;
+}
+span.price_rub {
+  color: #999999;
+  font-size: 13px;
+}
+.tooltip {
+  white-space: normal;
+}
+
+.info p {
+  padding: 15px;
+}
+
+table.tasks td.url {
+  font-size: 12px;
+}
+
+.image_default .thumbnail{
+  background-color: #DFF0D8;
+}
+
+.cover {
+  height: 220px;
+  padding: 5px;
+}

@@ -1,0 +1,56 @@
+<footer class="footer">
+  <div class="row">
+    <div class="col-md-4 col-sm-6 col-md-offset-2">
+      <h3><%= t('footer.quick_links') %></h3>
+
+      <div class="row">
+        <div class="col-md-6 col-sm-4 col-lg-4">
+          <ul>
+            <li><%= link_to t('header.navbar.goods'), categories_path %></li>
+            <li><%= link_to t('header.navbar.gifts'), categories_path(:gifts => 1) %></li>
+            <li><%= link_to t('footer.about'), about_path %></li>
+          </ul>
+        </div>
+        <div class="col-md-6 col-sm-6 col-lg-4">
+          <ul>
+            <li><%= link_to t('activerecord.models.news', count: 0), news_path %></li>
+            <li><%= link_to t('activerecord.models.feedback'), feedback_path %></li>
+            <li><%= link_to t('home.contacts.title'), contacts_path %></li>
+          </ul>
+        </div>
+      </div>
+
+
+    </div>
+    <div class="col-md-4 col-sm-6 col-md-offset-1">
+      <h3><%= t('footer.social') %></h3>
+
+      <%= link_to(root_path, class: 'social', target: 'blank') do %>
+        <%= image_tag 'footer-fb-icon.png' %>
+      <% end %>
+      <%= link_to(root_path, class: 'social', target: 'blank') do %>
+          <%= image_tag 'footer-skype-icon.png' %>
+      <% end %>
+      <%= link_to(root_path, class: 'social', target: 'blank') do %>
+          <%= image_tag 'footer-google-icon.png' %>
+      <% end %>
+
+      <br><br>
+      <h3><%= t('footer.contact_title') %></h3>
+      <%= t('footer.contact').html_safe %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 text-center"><hr> <div class="rights"><%= t('footer.copyright').html_safe %></div> </div>
+  </div>
+</footer>
+
+<% unless Rails.env == 'development' %>
+
+<!-- BEGIN JIVOSITE CODE {literal} -->
+<script type='text/javascript'>
+    (function(){ var widget_id = 'nmWM3wxVNC';
+        var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = '//code.jivosite.com/script/widget/'+widget_id; var ss = document.getElementsByTagName('script')[0]; ss.parentNode.insertBefore(s, ss);})();</script>
+<!-- {/literal} END JIVOSITE CODE -->
+
+<% end %>

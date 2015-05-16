@@ -1,0 +1,15 @@
+<% col = @category.self_and_ancestors %>
+<ol class="breadcrumb hidden-xs">
+  <% if @category.is_gift == 1 %>
+      <li><%= link_to t('header.navbar.gifts'), categories_path(:gifts => 1) %></li>
+  <% else %>
+      <li><%= link_to t('header.navbar.goods'), categories_path %></li>
+  <% end %>
+  <% col.each do |c| %>
+      <% if c == col.last && @product.nil? %>
+          <li class="active"><%=c.name %></li>
+      <% else %>
+          <li><%= link_to c.name, category_path(c) %></li>
+      <% end %>
+  <% end %>
+</ol>

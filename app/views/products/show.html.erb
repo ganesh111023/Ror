@@ -1,0 +1,46 @@
+<% title @product.title %>
+<%= render 'categories/breadcrumbs' %>
+<%= render 'categories/tree' %>
+
+<div class="container">
+
+    <div class="row">
+      <div class="col-md-12"><h1><%= @product.title %></h1></div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3">
+            <%= def_img(@product, 'thumb') %>
+            <% @images.each do |i| %>
+                <%= link_to image_tag(i.image_filename_url(:icon)), i.image_filename_url(), :class => 'thumbnail pull-left', :alt =>  @product.name, target: '_blank' %>
+            <% end %>
+        </div>
+
+        <div class="col-md-9">
+            <h4 class="media-heading">
+              <%= t('price') %> <%= exch_price @product.price %>
+            </h4>
+            <%= rating @product, :count => true %>
+            <p>Описание <%= @product.title %></p>
+
+            <p><%= @product.description %></p>
+
+            <p>
+              <%= button_to shopping_cart_path(:product_id => @product), :class => 'btn btn-primary', :method => :post do %>
+                  <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span><%= t('helpers.links.buy') %>
+              <% end %>
+            </p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 col-xs-12">
+            <h3><%= t('activerecord.models.comment', count: 0) %></h3>
+            <hr>
+            <%= render @comments %>
+            <%= link_to t('.leave_comments'), new_product_comment_path(@product.friendly_id) %> &nbsp;&nbsp;
+            <%= link_to t('.more_comments') + " (#{@product.comments.count-5})", product_comments_path(@product.friendly_id) if @product.comments.count > 5 %>
+        </div>
+    </div>
+
+</div>

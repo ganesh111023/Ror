@@ -1,0 +1,50 @@
+<% title t('.title') %>
+<%- model_class = ImportTask -%>
+<div class="row">
+  <div class="col-md-8">
+
+<% if @tasks.any? %>
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading"><%=t('.info_title')%></div>
+  <div class="panel-body">
+    <p>
+      <%=t('.info', :loc => params[:locale])%>
+    </p>
+  </div>
+
+  <table class="table tasks">
+    <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:vendor) %></th>
+      <th><%= model_class.human_attribute_name(:file_url) %></th>
+      <th><%= model_class.human_attribute_name(:updated_at) %></th>
+      <th><%= model_class.human_attribute_name(:job_count) %></th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+        <% @tasks.each do |t| %>
+            <tr>
+              <td><%= t.vendor.name %></td>
+              <td class="url"><%= link_to truncate(t.file_url, length: 50), t.file_url %></td>
+              <td><%=l t.updated_at, :format => :long if t.job_count > 0 %></td>
+              <td class="text-center"><%= t.job_count %></td>
+              <td>
+                <%= link_to '<span class="glyphicon glyphicon-remove"></span>'.html_safe,
+                            [:admin, t], method: :delete, data: { confirm: "Удалить задачу?"  },
+                            :class => 'actions',
+                            :title => t('helpers.titles.delete', :model => model_class.model_name.human) %>
+              </td>
+            </tr>
+        <% end %>
+    </tbody>
+  </table>
+</div>
+<% end %>
+</div>
+
+  <div class="col-md-4"></div>
+
+</div>
+<%= link_to t('helpers.titles.out_adminpanel'), root_path %>

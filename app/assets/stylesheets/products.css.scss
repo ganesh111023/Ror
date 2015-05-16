@@ -1,0 +1,40 @@
+// Place all the styles related to the Products controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.media-left, .media > .pull-left {
+  padding-right: 50px;
+}
+
+.rating_container {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.rating_container .star {
+  float: left;
+}
+
+.rating_container span {
+  color: #286090;
+  font-size: 12px;
+}
+.rating_container div {
+  clear: both;
+}
+
+.star img {
+  display: inline;
+}
+
+.search_result div {
+  margin-top: 10px;
+}
+
+.thumbnail {
+  h4 {
+    font-size: 16px;
+    height: 55px;
+    overflow: hidden;
+  }
+}

@@ -1,0 +1,12 @@
+
+<% if current_user.try(:admin?) %>
+    <li><%= link_to t('helpers.titles.adminpanel'), admin_products_path %></li>
+<% end %>
+
+<% if user_signed_in? %>
+    <li><%= link_to t('helpers.links.profile'), edit_user_registration_path %></li>
+    <li><%= link_to t('logout'), destroy_user_session_path, :method=>'delete' %></li>
+<% else %>
+    <li><%= link_to t('sign_in'), new_user_session_path %></li>
+    <li><%= link_to t('devise.registrations.new.title'), new_user_registration_path %></li>
+<% end %>

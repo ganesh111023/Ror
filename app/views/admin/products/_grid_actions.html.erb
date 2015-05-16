@@ -1,0 +1,9 @@
+<%= link_to '<span class="glyphicon glyphicon-edit"></span>'.html_safe,
+edit_admin_product_path(v),
+:class => 'actions',
+:title => t('helpers.titles.edit', :model => Product.model_name.human) %>
+
+<%= link_to '<span class="glyphicon glyphicon-remove"></span>'.html_safe,
+[:admin, v], method: :delete, data: { confirm: "Изменить статус на 'Удаленный' для \n #{v.name}?"  },
+:class => 'actions',
+:title => t('helpers.titles.delete', :model => Product.model_name.human) %>

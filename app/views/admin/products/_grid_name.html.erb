@@ -1,0 +1,2 @@
+<%= link_to "#{v.title}", admin_product_path(v), target: 'blank' %>
+<%= content_tag(:span, 'Популярный') if v.is_featured == 1 %>

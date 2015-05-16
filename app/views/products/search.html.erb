@@ -1,0 +1,37 @@
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-12">
+      <h2><%=t('.title', :n => params[:term]) %></h2>
+      <h3><%=t('.result', :n => @products.total_entries) if @products %></h3>
+      <hr>
+    </div>
+  </div>
+
+  <% if @products %>
+  <div class="row search_result">
+    <% @products.each do |p| %>
+    <div class="col-md-3">
+      <%= def_img(p, 'thumb') %>
+    </div>
+
+    <div class="col-md-9">
+      <h4><%= link_to "(#{p.id})" + truncate("#{p.name} #{p.model}", length: 120), product_path(p.friendly_id) %></h4>
+      <p><%= truncate(p.description, length: 200) %></p>
+      <p>
+        <%= exch_price p.price %>
+      </p>
+      <%= button_to shopping_cart_path(:product_id => p), :class => 'btn btn-primary', :method => :post do %>
+          <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span><%= t('helpers.links.buy') %>
+      <% end %>
+    </div>
+    <% end %>
+  </div>
+   <hr>
+  <div class="row">
+    <div class="col-md-offset-3 col-md-8 col-xs-12">
+      <%= will_paginate @products, renderer: BootstrapPagination::Rails %>
+    </div>
+  </div>
+  <% end %>
+</div>

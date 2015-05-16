@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  file_url: MyString
+  file_extension: MyString
+  currency: MyString
+
+two:
+  file_url: MyString
+  file_extension: MyString
+  currency: MyString

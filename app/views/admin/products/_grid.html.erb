@@ -1,0 +1,71 @@
+<%- model_class = Product -%>
+<%= grid(@products_grid, allow_showing_all_records:  false, show_filters: :when_filtered, html: {class: 'my-grid'}, header_tr_html:  {class: 'my-header'}) do |g|
+
+  g.blank_slate  do
+    content_tag :div, "Странно, продуктов еще нет", class: 'well'
+  end
+
+  g.row_attributes do |v|
+    {class: v.status.downcase} unless Product.status.find_value(v.status).value == Product::STATUS_ACTIVE
+  end
+
+  g.action_column html: {class: 'selected'}
+
+  g.column name: model_class.human_attribute_name(:name),
+           attribute: 'name',
+           html: {class: 'name'}  do |v|
+    render 'grid_name', v: v
+  end
+
+  g.column name: model_class.human_attribute_name(:countries),
+           filter: false,
+           html: {class: 'region'} do |v|
+    v.countries.ids.join(', ')
+  end
+
+  g.column name: model_class.human_attribute_name(:price),
+           attribute: 'price_cents',
+           filter: false,
+           html: {class: 'price'} do |v|
+    render 'grid_price', v: v
+  end
+
+  g.column name: model_class.human_attribute_name(:exch_rate),
+           attribute: 'exch_rate',
+           filter: false,
+           html: {class: 'rate'} do |v|
+    v.exch_rate
+  end
+
+  g.column name: model_class.human_attribute_name(:category),
+           attribute: 'category_id',
+           custom_filter: Category.all.collect {|v| [ v.name, v.id ] },
+           html: {class: 'category'} do |v|
+    v.category.name if v.category
+  end
+
+  g.column name: model_class.human_attribute_name(:vendor),
+           attribute: 'vendor_id',
+           custom_filter: Vendor.all.collect {|v| [ v.name, v.id ] },
+           html: {class: 'vendor'} do |v|
+    render 'grid_vendor', v: v
+  end
+
+  g.column name: model_class.human_attribute_name(:quantity_short),
+           attribute: 'quantity',
+           html: {class: 'quantity'} do |v|
+    v.quantity
+  end
+
+  g.column name: model_class.human_attribute_name(:created_at),
+           attribute: 'created_at',
+           html: {class: 'created_at'} do |v|
+    l v.created_at, :format => :short
+  end
+
+  g.column html: {class: 'actions'} do |v|
+    render 'grid_actions', v: v
+  end
+
+end
+%>

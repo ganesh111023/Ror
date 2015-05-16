@@ -1,0 +1,29 @@
+<%- model_class = Product -%>
+<% title t('.title') %>
+
+<% if @featured.any? %>
+<div class="table-responsive">
+  <table class="table table-striped">
+    <tr>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:category) %></th>
+      <th><%= t('helpers.actions') %></th>
+    </tr>
+
+    <% @featured.each do |p| %>
+        <tr>
+          <td><%= link_to "#{p.title}", admin_product_path(p), target: 'blank' %></td>
+          <td><%= p.category.name if p.category %></td>
+          <td>
+            <%= link_to '<span class="glyphicon glyphicon-remove"></span>'.html_safe,
+                        featured_admin_products_path(id: p.id), method: :delete, data: { confirm: "Удалить из популярных?"  },
+                        :class => 'actions',
+                        :title => t('helpers.titles.delete', :model => model_class.model_name.human) %>
+          </td>
+        </tr>
+    <% end %>
+  </table>
+</div>
+<% else %>
+    Вернитесь в раздел "Продукты" для добавления в популярные
+<% end %>

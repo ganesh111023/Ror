@@ -1,0 +1,39 @@
+<% title t('activerecord.models.feedback') %>
+
+<%= form_tag(admin_feedbacks_path, method: "get") do %>
+    <input type="hidden" name="page" value="<%= params[:page] %>">
+    <table class="table table-striped">
+      <tr>
+        <th></th>
+        <th>Вопрос</th>
+        <th>Добавлен</th>
+        <th>Категория</th>
+        <th>Имя</th>
+        <th>Контакт</th>
+      </tr>
+
+      <% @recs.each do |r| %>
+
+          <tr>
+            <td><%= check_box_tag 'f_ids[]', r.id -%></td>
+            <td><%= link_to r.comment.split(/\s+/).slice(0,20).join(' '), admin_feedback_path(r) %></td>
+            <td><%= l r.created_at, :format => :long %></td>
+            <td><%= t('enumerize.feedback.reason.'+r.reason) %></td>
+            <td><%= r.name %></td>
+            <td>
+              <% str = t('enumerize.feedback.contact_type.'+r.contact_type) + ': ' + r.contact %>
+              <% if r.user_id %>
+                  <%= link_to str, admin_user_path(r.user_id) %>
+              <% else %>
+                  <%= str %>
+              <% end %>
+
+            </td>
+          </tr>
+      <% end %>
+    </table>
+    <%= will_paginate @recs, renderer: BootstrapPagination::Rails %>
+    <hr>
+    <%=t('or_toggle_selected')%> &nbsp;
+    <%= submit_tag t('helpers.links.destroy'), name: 'delete_button', :class => 'btn btn-danger btn-sm' %>
+<% end %>

@@ -1,0 +1,36 @@
+<% if @news.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@news.errors.count, "error") %></h2>
+      <ul>
+        <% @news.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+<% end %>
+
+<%= form_for [:admin, @news], :html => { :class => 'form-horizontal' } do |f| %>
+
+    <div class="form-group">
+      <%= f.label :title, :class => 'col-lg-3 control-label' %>
+      <div class="col-lg-8">
+        <%= f.text_field :title, class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :body, :class => 'col-lg-3 control-label' %>
+      <div class="col-lg-4">
+        <%= f.text_area :body, class: 'form-control' %>
+      </div>
+    </div>
+
+
+    <div class="form-group">
+      <div class="col-lg-10 col-lg-offset-3">
+        <%= f.submit :class => 'btn btn-success' %>
+        <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                    admin_news_index_path, :class => 'btn' %>
+       </div>
+    </div>
+<% end %>

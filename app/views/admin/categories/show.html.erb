@@ -1,0 +1,30 @@
+<%- model_class = Category -%>
+<% title @category.name %>
+
+<div class="row">
+  <div class="col-md-4">
+    <div class="well">
+    <p>
+      <strong><%= model_class.human_attribute_name(:name) %></strong> <br>
+      <%= @category.name %>
+    </p>
+    <p>
+      <strong>Сcылка на категорию:</strong> <br>
+      <%= link_to category_url(@category), category_path(@category), target: '_blank' %> <br>
+    </p>
+    </div>
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              admin_categories_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_admin_category_path(@category), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              admin_category_path(@category),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
+
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h3><%= t('activerecord.models.comment', count: 0) %></h3>
+      <hr>
+      <%= link_to 'Оставить комментарий', new_product_comment_path(@product.friendly_id) %> <br><br>
+
+      <%= render @comments %>
+      <%= will_paginate @comments, renderer: BootstrapPagination::Rails %>
+
+      <br>
+
+      <%= link_to t('helpers.links.back'), product_path(@product.friendly_id) %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,51 @@
+<%- model_class = Product -%>
+<% title @product.title %>
+<div class="row">
+<div class="col-md-4">
+
+<p>
+    <strong><%= model_class.human_attribute_name(:model) %>:</strong>
+    <%= @product.model %>
+</p>
+<p>
+  <strong><%= model_class.human_attribute_name(:price) %>:</strong>
+  <%= exch_price @product.price, :locale => :en %> <br>
+</p>
+<% if @product.original_price %>
+    <p>
+        <strong><%= model_class.human_attribute_name(:original_price) %>:</strong>
+        <%= exch_price @product.original_price.to_money, {:no_exchange => true, :currency => @product.original_currency} %>
+        (<strong><%= model_class.human_attribute_name(:rate) %>:</strong> <%= @product.exch_rate %> )
+    </p>
+<% end %>
+
+<p>
+  <strong><%= model_class.human_attribute_name(:category) %>:</strong>
+  <%= @product.category.name if @product.category %>
+</p>
+<p>
+    <strong><%= model_class.human_attribute_name(:status) %>:</strong>
+    <%= t("enumerize.product.status.#{@product.status}")  %>
+</p>
+  <p>
+    <strong><%= model_class.human_attribute_name(:vendor) %>:</strong>
+    <%= @product.vendor.name if @product.vendor %>
+  </p>
+  <p>
+    <strong>Сcылка на продукт:</strong> <br>
+    <%= link_to product_url(@product.friendly_id), product_path(@product.friendly_id), target: '_blank' %> <br>
+  </p>
+<p>
+    <strong><%= model_class.human_attribute_name(:description) %>:</strong>
+    <%= @product.description %>
+</p>
+
+<%= link_to t('helpers.links.edit'), edit_admin_product_path(@product) %> |
+<%= link_to t('helpers.links.back'), admin_products_path %>
+</div>
+<div class="col-md-8">
+  <% @product.images.each do |i| %>
+    <%= link_to image_tag(i.image_filename_url(:thumb)), i.image_filename_url(), :class => 'thumbnail pull-left', :alt =>  @product.name, target: '_blank' %>
+  <% end %>
+</div>
+</div>

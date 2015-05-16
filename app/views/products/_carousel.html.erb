@@ -1,0 +1,20 @@
+<% if @products.any? %>
+    <div data-example-id="carousel-with-captions" class="bs-example">
+      <div data-ride="carousel" class="carousel slide" id="carousel-example-captions">
+        <ol class="carousel-indicators">
+          <%= render partial: 'products/product_carousel_indicator', collection: @products %>
+        </ol>
+        <div role="listbox" class="carousel-inner">
+          <%= render partial: 'products/product_carousel', collection: @products %>
+        </div>
+        <a data-slide="prev" role="button" href="#carousel-example-captions" class="left carousel-control">
+          <span aria-hidden="true" class="glyphicon glyphicon-chevron-left"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a data-slide="next" role="button" href="#carousel-example-captions" class="right carousel-control">
+          <span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </div>
+<% end %>

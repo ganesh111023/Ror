@@ -1,0 +1,12 @@
+<% content_for :categories do %>
+    <script>
+        $(function() {
+            $("#side-menu").metisMenu({
+                doubleTapToGo: true
+            });
+        });
+    </script>
+    <ul id="side-menu" class="nav">
+      <%= just_tree @categories, :title => :name %>
+    </ul>
+<% end %>

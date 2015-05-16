@@ -1,0 +1,35 @@
+<%- model_class = Vendor -%>
+<% title t('.title') %>
+
+<%= form_tag(admin_vendors_path, method: "get") do %>
+    <input type="hidden" name="page" value="<%= params[:page] %>">
+    <div class="table-responsive">
+    <table class="table table-striped">
+      <tr>
+        <th><%= model_class.human_attribute_name(:name) %></th>
+        <th><%= model_class.human_attribute_name(:markup_percent) %></th>
+        <th><%= model_class.human_attribute_name(:created_at) %></th>
+        <th><%= t('helpers.actions') %></th>
+      </tr>
+
+      <% @vendors.each do |user| %>
+
+          <tr>
+            <td><%= link_to user.name, admin_vendor_path(user) %></td>
+            <td><%= user.markup_percent %></td>
+            <td><%=l user.created_at, :format => :long %></td>
+            <td>
+
+          <%= link_to '<span class="glyphicon glyphicon-cog"></span>'.html_safe,
+                      edit_admin_vendor_path(user),
+                      :class => 'actions',
+                      :title => t('helpers.titles.edit', :model => model_class.model_name.human) %>
+
+            </td>
+          </tr>
+      <% end %>
+    </table>
+    </div>
+    <%= will_paginate @users, renderer: BootstrapPagination::Rails %>
+<% end %>
+    <%= button_to t('helpers.links.new'), new_admin_vendor_path, :class => 'btn btn-primary', :method => :get %>

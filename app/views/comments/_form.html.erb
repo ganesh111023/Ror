@@ -1,0 +1,28 @@
+<div class="rating_container">
+    <%= rating_for @product, "rating", :cancel => false, :disable_after_rate => false, :init_mode => true, :user => current_user %><div></div>
+</div>
+
+<%= form_for [@product, @comment] do |f| %>
+    <%= f.hidden_field :user_id, :value => current_user.id if user_signed_in? %>
+    <%= f.hidden_field :product_id, :value => @product.id %>
+  <% if @comment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+
+      <ul>
+      <% @comment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.text_area :body, placeholder: t('comment.your_comment'), class: 'form-control', rows: '5' %>
+
+    <%= link_to t('.cancel', :default => t('helpers.links.cancel')),
+                product_path(@product.friendly_id), :class => 'btn' %>
+    <%= f.submit :class => 'btn btn-success' %>
+
+  </div>
+<% end %>

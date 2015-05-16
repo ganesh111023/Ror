@@ -1,0 +1,91 @@
+<% title t('.title', id: @order.id) %>
+<%- model_class = OrderItem -%>
+<%- model_class2 = OrderTransaction -%>
+
+<%= link_to t('helpers.links.back'), admin_orders_path %> <br><br>
+
+<div class="panel panel-success">
+  <!-- Default panel contents -->
+  <div class="panel-heading"><%=t('.items_table_title')%></div>
+  <div class="panel-body">
+    <p>
+      <%=t('.items_table_info')%>
+    </p>
+  </div>
+
+<table class="table table-striped">
+  <tr>
+    <th><%= model_class.human_attribute_name(:title) %></th>
+    <th><%= model_class.human_attribute_name(:quantity) %></th>
+    <th><%= model_class.human_attribute_name(:price) %></th>
+  </tr>
+  <% @order.order_items.each do |i| %>
+      <tr>
+        <td><%= link_to i.title, admin_product_path(i.product) %></td>
+        <td><%= i.quantity %></td>
+        <td><%= i.price.format %></td>
+      </tr>
+  <% end %>
+</table>
+</div>
+
+<!-- User details -->
+<div class="panel panel-warning">
+  <!-- Default panel contents -->
+  <div class="panel-heading">User details</div>
+
+  <table class="table table-striped">
+    <tr>
+      <th><%= model_class.human_attribute_name(:user) %></th>
+      <th><%= model_class.human_attribute_name(:address1) %></th>
+      <th><%= model_class.human_attribute_name(:address2) %></th>
+      <th><%= model_class.human_attribute_name(:city) %></th>
+      <th><%= model_class.human_attribute_name(:state) %></th>
+      <th><%= model_class.human_attribute_name(:zip) %></th>
+      <th><%= model_class.human_attribute_name(:phone) %></th>
+      <th><%= model_class.human_attribute_name(:country_code) %></th>
+    </tr>
+    <tr>
+      <td><%= link_to @order.user.full_name, admin_user_path(@order.user), target: 'blank' %></td>
+      <td><%= @order.address1 %></td>
+      <td><%= @order.address2 %></td>
+      <td><%= @order.city %></td>
+      <td><%= @order.state %></td>
+      <td><%= @order.zip %></td>
+      <td><%= @order.phone %></td>
+      <td><%= @order.checkout_country.name %></td>
+    </tr>
+  </table>
+</div>
+<!-- User detalis END-->
+
+<div class="panel panel-info">
+  <!-- Default panel contents -->
+  <div class="panel-heading"><%=t('.transactions_table_title')%></div>
+  <div class="panel-body">
+    <p>
+      <%=t('.transactions_table_info')%>
+    </p>
+  </div>
+
+  <table class="table table-striped">
+    <tr>
+      <th><%= model_class2.human_attribute_name(:amount) %></th>
+      <th><%= model_class2.human_attribute_name(:success) %></th>
+      <th><%= model_class2.human_attribute_name(:authorization) %></th>
+      <th><%= model_class2.human_attribute_name(:message) %></th>
+      <th><%= model_class2.human_attribute_name(:params) %></th>
+      <th><%= model_class2.human_attribute_name(:created_at) %></th>
+    </tr>
+    <% @order.transactions.each do |i| %>
+        <tr>
+          <td><%= i.amount %></td>
+          <td><%= i.success %></td>
+          <td><%= i.authorization %></td>
+          <td><%= i.message %></td>
+          <td><%= i.params %></td>
+          <td><%= l i.created_at, :format => :long %></td>
+        </tr>
+    <% end %>
+  </table>
+</div>

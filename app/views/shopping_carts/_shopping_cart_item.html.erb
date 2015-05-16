@@ -1,0 +1,27 @@
+<% price = exch_price shopping_cart_item.item.price %>
+<div class="row equalHeight">
+  <div class="col-md-1 pull-right hidden-xs">
+      <%= link_to image_tag('_.gif', :width => 17, :height => 17, :class => 'cart-i-remove-icon'),
+                  item_shopping_cart_path(:product_id => shopping_cart_item.item), method: :delete, class:'cart-i-remove', data: { confirm:  t('.confirm') } %>
+  </div>
+  <div class="col-xs-4 col-md-3 text-center">
+    <%= def_img(shopping_cart_item.item, 'thumb') %>
+    <div class="hidden-md hidden-sm hidden-lg text-center"><%= price %></div>
+  </div>
+  <div class="col-xs-8 col-md-5">
+    <%= link_to truncate(shopping_cart_item.item.title, length: 100), product_path(shopping_cart_item.item.friendly_id) %>
+    <div class="hidden-xs"><%= price %></div><br><br>
+  </div>
+  <div class="col-xs-4 col-md-1">
+    <input id="<%= shopping_cart_item.item.id %>" type="text" class="spinner" value="<%= shopping_cart_item.quantity %>">
+  </div>
+  <div class="col-xs-4 col-md-2">
+    <div id="price_<%= shopping_cart_item.item.id %>">
+      <%= exch_price (@shopping_cart.subtotal_for(shopping_cart_item.item)/100).to_money, no_html: true %>
+    </div>
+  </div>
+  <div class="col-xs-12 hidden-md hidden-sm hidden-lg text-center">
+    <%= link_to t('helpers.links.destroy'),
+                item_shopping_cart_path(:product_id => shopping_cart_item.item), method: :delete, :class => 'delete-mob' %>
+  </div>
+</div>

@@ -1,0 +1,3 @@
+<%= rating_for_user @product, comment.user, "rating", readonly: true %>
+<b><%= comment.user.full_name %></b>, <%= l comment.created_at, :format => :ym %> <br>
+<%= comment.body %> <br><br>

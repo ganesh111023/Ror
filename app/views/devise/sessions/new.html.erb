@@ -1,0 +1,46 @@
+<% title t('.title') %>
+<%= devise_error_messages! %>
+
+<div class="col-md-6 col-md-offset-3">
+  <div class="well b-login-form">
+    <h4><%=t('.title')%></h4>
+    <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :role => 'form'}) do |f| %>
+    <div class="form-group">
+      <%= f.email_field :email, :autofocus => true, class: 'form-control input-lg', placeholder: t('activerecord.attributes.user.email') %>
+    </div>
+    <div class="form-group">
+        <%= f.password_field :password, class: 'form-control input-lg', placeholder: t('activerecord.attributes.user.password') %>
+    </div>
+    <div class="form-group">
+      <div class="row">
+        <div class="col-xs-6">
+          <div class="checkbox">
+            <%= f.label(:remember_me) do %>
+                <%= f.check_box :remember_me %><%= t('helpers.label.user.remember_me') %>
+            <% end %>
+          </div>
+        </div>
+        <div class="col-xs-6 forgot-pass">
+          <%= link_to t(:forgot_pass), new_password_path(resource_name) %>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="form-group">
+      <div class="row">
+        <div class="col-xs-3">
+          <%= f.submit t(:sign_in), :class => 'btn btn-primary btn-lg' %>
+        </div>
+        <div class="col-xs-9 social-login">
+          <span class="hidden-xs"><%=h t(:sign_in_through, provider: "") %></span>
+          <%= link_to image_tag("google_64.png", :border => 0, :size => "39x39", :alt => 'Google', :title => 'Google'),
+                      user_omniauth_authorize_path(:google_oauth2), :class => 'auth_provider' %>
+          <%= link_to image_tag("facebook_64.png", :border => 0, :size => "39x39", :alt => 'Facebook', :title => 'Facebook'),
+                      user_omniauth_authorize_path(:facebook), :class => 'auth_provider' %>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>

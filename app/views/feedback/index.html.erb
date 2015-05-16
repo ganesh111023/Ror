@@ -1,0 +1,64 @@
+<% title t('activerecord.models.feedback') %>
+
+<% if @feedback.errors.any? %>
+    <div id="error_explanation">
+      <ul>
+        <% @feedback.errors.full_messages.each do |msg| %>
+            <li class="text-danger"><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+<% end %>
+
+<div class="well">
+  <div class="row">
+		<div class="col-md-6">
+          <h4><%=t('feedback.title')%></h4>
+          <div class="col-md-12">
+			<%= form_for @feedback, :html => { :class => 'form-horizontal', role: 'form' } do |f| %>
+				<%= f.hidden_field :user_id, :value => current_user.id if user_signed_in? %>
+
+				<div class="form-group">
+					<%= f.select :reason, Feedback.reason.options, {:include_blank => false}, { :class => 'form-control' } %>
+				</div>
+				<div class="form-group">
+					<%= f.text_area :comment, placeholder: t(:ent_comment, :scope => :feedback), class: 'form-control', rows: '5' %>
+				</div>
+				<div class="row">
+					<div class="col-md-8">
+						<div class="form-group">
+							<%= f.text_field :name, placeholder: t(:ent_name, :scope => :feedback), class: 'form-control' %>
+						</div>
+						<div class="form-group">
+							<%= f.label(:contact_type_email, class: 'radio-inline') do %>
+								<%= f.radio_button :contact_type, 'EMAIL', :checked => true %><%= t('enumerize.feedback.contact_type.EMAIL') %>
+							<% end %>
+							<%= f.label(:contact_type_skype, class: 'radio-inline') do %>
+								<%= f.radio_button :contact_type, 'SKYPE' %><%= t('enumerize.feedback.contact_type.SKYPE') %>
+							<% end %>
+							<%= f.label(:contact_type_phone, class: 'radio-inline') do %>
+								<%= f.radio_button :contact_type, 'PHONE' %><%= t('enumerize.feedback.contact_type.PHONE') %>
+							<% end %>
+						</div>
+						<div class="form-group">
+							<%= f.text_field :contact, placeholder: t(:ent_contact, :scope => :feedback), class: 'form-control' %>
+						</div>
+						<div class="form-group">
+							<%= f.submit :class => 'btn btn-success' %>
+						</div>
+					</div>
+				</div>
+			<% end %>
+            </div>
+		</div>
+		<div class="col-md-5 col-md-offset-1">
+			<!-- Support Contacts -->
+			<div>
+				<h3>Служба поддержки</h3>
+				<div class="way phone">(755) 415-45-76</div>
+				<div class="way skype"><a href="#" class="contact icon-skype">Skype звонок</a></div>
+				<div class="way"><a href="depot-web-support@websupp.ua">depot-web-support@websupp.ua</a></div>
+			</div>
+		</div>
+	</div>
+</div>

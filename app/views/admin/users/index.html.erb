@@ -1,0 +1,63 @@
+<%- model_class = User -%>
+<% title t("activerecord.models.user", :count => 0) %>
+
+<style>
+  a.actions {
+    font-size: 14px;
+    padding-right: 5px;
+  }
+</style>
+
+<%= form_tag(admin_users_path, method: "get") do %>
+    <input type="hidden" name="page" value="<%= params[:page] %>">
+    <div class="table-responsive">
+    <table class="table table-striped">
+      <tr>
+        <th></th>
+        <th><%= model_class.human_attribute_name(:email) %></th>
+        <th><%= model_class.human_attribute_name(:first_name) %></th>
+        <th><%= model_class.human_attribute_name(:last_name) %></th>
+        <th><%= model_class.human_attribute_name(:is_active) %></th>
+        <th><%= model_class.human_attribute_name(:admin) %></th>
+        <th><%= model_class.human_attribute_name(:provider) %></th>
+        <th><%= model_class.human_attribute_name(:sign_in_count) %></th>
+        <th><%= model_class.human_attribute_name(:created_at) %></th>
+        <th><%= t('helpers.actions') %></th>
+      </tr>
+
+      <% @users.each do |user| %>
+          <% status = 'danger' unless user.is_active %>
+          <% admin = 'success' if current_user.id == user.id %>
+
+          <tr class="<%= "#{admin} #{status}"  %>">
+            <td><%= check_box_tag 'user_ids[]', user.id -%></td>
+            <td><%= link_to user.email, admin_user_path(user) %></td>
+            <td><%= user.first_name %></td>
+            <td><%= user.last_name %></td>
+            <td><%= user.is_active.to_s %></td>
+            <td><%= user.admin.to_s %></td>
+            <td><%= user.provider %></td>
+            <td><%= user.sign_in_count %></td>
+            <td><%=l user.created_at, :format => :short %></td>
+            <td>
+
+
+          <%= link_to '<span class="glyphicon glyphicon-cog"></span>'.html_safe,
+                      edit_admin_user_path(user),
+                      :class => 'actions',
+                      :title => t('helpers.titles.edit', :model => User.model_name.human) %>
+
+
+            </td>
+          </tr>
+      <% end %>
+    </table>
+    </div>
+    <%= will_paginate @users, renderer: BootstrapPagination::Rails %>
+    <hr>
+    <%= link_to t('helpers.links.new_user'), new_admin_user_path %> &nbsp;
+    <%=t('or_toggle_selected')%> &nbsp;
+    <%= submit_tag t('helpers.links.active'), :class => 'btn btn-primary btn-sm', name: 'active_button' %> &nbsp;
+    <%= submit_tag t('helpers.links.grant_admin'), :class => 'btn btn-primary btn-sm', name: 'make_admin_button' %>
+    <hr>
+<% end %>

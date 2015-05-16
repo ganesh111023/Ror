@@ -1,0 +1,78 @@
+<% if @order.errors.any? %>
+    <div id="error_explanation">
+      <ul>
+        <% @order.errors.full_messages.each do |msg| %>
+            <li class="text-danger"><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+<% end %>
+
+
+  <div class="row">
+    <div class="col-xs-12 col-md-4">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title"><img class="pull-right" src="http://i76.imgup.net/accepted_c22e0.png">Payment Details</h3>
+        </div>
+        <div class="panel-body">
+
+<%= form_for @order do |f| %>
+    <p>
+      <%= f.label :first_name %><br />
+      <%= f.text_field :first_name, class: 'form-control', placeholder: 'First Name' %>
+    </p>
+    <p>
+      <%= f.label :last_name %><br />
+      <%= f.text_field :last_name, class: 'form-control', placeholder: 'Last Name' %>
+    </p>
+      <p>
+        <%= f.label :address1 %><br />
+        <%= f.text_field :address1, class: 'form-control', placeholder: 'Street address, P.O. box, company name ' %>
+      </p>
+      <p>
+        <%= f.label :address2 %><br />
+        <%= f.text_field :address2, class: 'form-control', placeholder: 'Apartment, suite, unit, building, floor, etc' %>
+      </p>
+      <p>
+        <%= f.label :city %><br />
+        <%= f.text_field :city, class: 'form-control' %>
+      </p>
+      <p>
+        <%= f.label :state %><br />
+        <%= f.text_field :state, class: 'form-control', placeholder: 'State/Province/Region' %>
+      </p>
+      <p>
+        <%= f.label :zip %><br />
+        <%= f.text_field :zip, class: 'form-control' %>
+      </p>
+      <p>
+        <%= f.label :country %><br />
+        <%= f.collection_select :country_code, CheckoutCountry.all, :code, :name, {}, {:multiple => false, :class => 'form-control'} %>
+      </p>
+      <p>
+        <%= f.label :phone %><br />
+        <%= f.text_field :phone, class: 'form-control' %>
+      </p>
+    <p>
+      <%= f.label :card_type %><br />
+      <%= f.select :card_type, [["Visa", "visa"], ["MasterCard", "master"], ["Discover", "discover"], ["American Express", "american_express"]], {}, { :class => 'form-control' } %>
+    </p>
+    <p>
+      <%= f.label :card_number %><br />
+      <%= f.text_field :card_number, class: 'form-control' %>
+    </p>
+    <p>
+      <%= f.label :card_verification, "Card Verification Value (CVV)" %><br />
+      <%= f.text_field :card_verification, class: 'form-control' %>
+    </p>
+    <p>
+      <%= f.label :card_expires_on %><br />
+      <%= f.date_select :card_expires_on, {:discard_day => true, :start_year => Date.today.year, :end_year => (Date.today.year+10), :add_month_numbers => true}, {:class => 'form-control'} %>
+    </p>
+    <p><%= f.submit class: 'btn btn-success btn-lg btn-block' %></p>
+<% end %>
+        </div>
+      </div>
+    </div>
+  </div>

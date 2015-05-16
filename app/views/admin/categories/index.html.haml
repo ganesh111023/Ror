@@ -1,0 +1,6 @@
+=title t('.title', :loc => params[:locale])
+
+%ol.sortable_tree.expandable{ data: { max_levels: 20, rebuild_url: rebuild_admin_categories_path, expand_node_url: expand_node_admin_categories_url, cookie_store: :true, cookie_scope: @categories.first.class } }
+  = expandable_tree @categories, :namespace => :admin, :title => :name
+<hr>
+=button_to t('helpers.links.create'), new_admin_category_path, :class => 'btn btn-primary btn-sm', :method => :get

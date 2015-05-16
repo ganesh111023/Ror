@@ -1,0 +1,42 @@
+<%- model_class = User -%>
+<% title @user.full_name %>
+
+<div class="row">
+  <div class="col-md-4">
+    <div class="well well-lg">
+        <p>
+            <strong><%= model_class.human_attribute_name(:email) %>:</strong>
+            <%= @user.email %>
+        </p>
+        <p>
+            <strong><%= model_class.human_attribute_name(:is_active) %>:</strong>
+            <% if @user.is_active %>Да<% else %>Нет<% end %>
+        </p>
+        <p>
+            <strong><%= model_class.human_attribute_name(:admin) %>:</strong>
+            <% if @user.admin %>Да<% else %>Нет<% end %>
+        </p>
+        <p>
+            <strong><%= model_class.human_attribute_name(:sign_in_count) %>:</strong>
+            <%= @user.sign_in_count %>
+        </p>
+        <p>
+            <strong><%= model_class.human_attribute_name(:created_at) %>:</strong>
+            <%= l @user.created_at, :format => :ym %>
+        </p>
+    </div>
+
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              admin_users_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_admin_user_path(@user), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.deactivate")),
+              admin_user_path(@user),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
+  </div>
+</div>

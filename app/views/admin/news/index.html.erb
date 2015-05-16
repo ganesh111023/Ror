@@ -1,0 +1,33 @@
+<%- model_class = News -%>
+<% title t('.title') %>
+
+<%= form_tag(admin_news_index_path, method: "get") do %>
+    <input type="hidden" name="page" value="<%= params[:page] %>">
+    <div class="table-responsive">
+    <table class="table table-striped">
+      <tr>
+        <th><%= model_class.human_attribute_name(:title) %></th>
+        <th><%= model_class.human_attribute_name(:created_at) %></th>
+        <th><%= t('helpers.actions') %></th>
+      </tr>
+
+      <% @news.each do |n| %>
+
+          <tr>
+            <td><%= link_to n.title.html_safe, admin_news_path(n) %></td>
+            <td><%=l n.created_at, :format => :long %></td>
+            <td>
+
+          <%= link_to '<span class="glyphicon glyphicon-cog"></span>'.html_safe,
+                      edit_admin_news_path(n),
+                      :class => 'actions',
+                      :title => t('helpers.titles.edit', :model => model_class.model_name.human) %>
+
+            </td>
+          </tr>
+      <% end %>
+    </table>
+    </div>
+    <%= will_paginate @news, renderer: BootstrapPagination::Rails %>
+<% end %>
+    <%= button_to t('helpers.links.new'), new_admin_news_path, :class => 'btn btn-primary', :method => :get %>
